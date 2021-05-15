@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-item',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
+  @Input('title') public title: string = 'Go to market';
+  
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public clickHandler(e: Event): void {
+    e.preventDefault();
   }
 
 }

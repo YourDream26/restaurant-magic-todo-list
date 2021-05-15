@@ -1,0 +1,15 @@
+@import '../../../assets/colors';
+
+:host {
+    .item-wrapper {
+        display: flex;
+        background-color: $whiteColor;
+        border-radius: 8px;
+        padding: 14px;
+        color: $blackColor;
+        margin-bottom: 1rem;
+        span:first-child {
+            flex-grow: 1;
+        }
+    }
+}

@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IncompletedComponent implements OnInit {
 
+  public title = 'Incompleted Tasks';
+
   constructor() { }
 
   ngOnInit(): void {

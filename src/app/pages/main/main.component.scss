@@ -1,0 +1,31 @@
+@import '../../../assets/colors';
+
+:host {
+    .main-container {
+        width: 960px;
+        max-width: 90%;
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+    }
+
+    .line {
+        width: 100%;
+    }
+
+    .lists-section,
+    .form-section {
+        padding: 2rem 0 2rem 2rem;
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+    }
+
+    .lists-section {
+        padding-left: 0;
+    }
+    
+    .form-section {
+        border-left: 1px solid $whiteColor;
+    }
+}
