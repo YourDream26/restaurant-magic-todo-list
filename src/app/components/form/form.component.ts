@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
+  public pageTitle = 'Add Form';
+  public placeholderTitle = 'Task Name';
+  public buttonTitle = 'Add';
+
   constructor() { }
 
   ngOnInit(): void {

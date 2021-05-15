@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompletedComponent implements OnInit {
 
+  public title = 'Completed Tasks';
+
   constructor() { }
 
   ngOnInit(): void {
