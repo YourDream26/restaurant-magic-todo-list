@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { SessionQuery } from 'src/app/state/todo.query';
@@ -10,7 +10,7 @@ import { TodosService } from '../../state/todo.service';
   styleUrls: ['./form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, OnDestroy {
 
   public pageTitle = 'Add Form';
   public placeholderTitle = 'Task Name';
@@ -27,7 +27,7 @@ export class FormComponent implements OnInit {
         Validators.pattern(/([a-zA-Z0-9])(a-zA-Z0-9)*/)
       ]
     })
-  })
+  });
 
   constructor(private service: TodosService, private store: SessionQuery) { }
 
@@ -40,7 +40,7 @@ export class FormComponent implements OnInit {
   public submitHandler(): void {
     if (this.form.valid) {
       const value = this.form.value.title.trim();
-      if (~this.existingList.indexOf(value)) {
+      if (this.existingList.indexOf(value) !== -1) {
         alert('Task with this name already Exists!');
       } else {
         this.service.add(value);
