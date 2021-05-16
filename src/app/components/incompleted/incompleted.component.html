@@ -1,5 +1,7 @@
 <div class="wrapper">
     <h2 class="title">{{ title }}</h2>
-    <app-item></app-item>
-    <app-item></app-item>
+    <app-item 
+        *ngFor="let item of todoList"
+        [todo]="item"
+        (changeStatus)="handleChangeStatus($event)"></app-item>
 </div>

@@ -1,8 +1,18 @@
 <div class="main-container">
     <section class="lists-section">
-        <app-completed></app-completed>
+        <ng-container *ngIf="(incompletedTodos$ | async) as incompleted; else emptyIncompleted">
+            <app-incompleted [todoList]="incompleted" (changeItem)="handleChangeItem($event)"></app-incompleted>
+        </ng-container>
+        <ng-template #emptyIncompleted>
+            <app-incompleted></app-incompleted>
+        </ng-template>
         <hr class="line" />
-        <app-incompleted></app-incompleted>
+        <ng-container *ngIf="(completedTodos$ | async) as completed; else emptyCompleted">
+            <app-completed [todoList]="completed" (changeItem)="handleChangeItem($event)"></app-completed>
+        </ng-container>
+        <ng-template #emptyCompleted>
+            <app-completed></app-completed>
+        </ng-template>
     </section>
     <section class="form-section">
         <app-form></app-form>
