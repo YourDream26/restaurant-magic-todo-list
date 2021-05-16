@@ -3,6 +3,6 @@
 
     <form>
         <input class="default-input" type="text" [placeholder]="placeholderTitle" />
-        <button class="default-button" type="submit">{{ buttonTitle }}</button>
+        <button class="default-button" type="submit" (click)="submitHandler($event);">{{ buttonTitle }}</button>
     </form>
 </div>

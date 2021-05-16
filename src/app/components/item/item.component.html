@@ -1,6 +1,6 @@
 <div class="item-wrapper">
-    <span>{{ title }}</span>
+    <span>{{ todo.title }}</span>
     <span>
-        <input type="checkbox" (click)="clickHandler($event);" />
+        <input type="checkbox" (click)="clickHandler($event);" [checked]="todo.completed" />
     </span>
 </div>

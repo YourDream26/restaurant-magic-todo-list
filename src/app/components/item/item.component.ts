@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Todo } from 'src/app/state/todo.model';
 
 @Component({
   selector: 'app-item',
@@ -7,15 +8,24 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ItemComponent implements OnInit {
 
-  @Input('title') public title: string = 'Go to market';
-  
+  @Input() public todo: Todo = {
+    id: 0,
+    title: '',
+    completed: false
+  };
+
+  @Output()
+  public changeStatus: EventEmitter<Todo> = new EventEmitter();
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  public ngOnInit(): void {}
 
   public clickHandler(e: Event): void {
     e.preventDefault();
+    const updatedObject: Todo = {...this.todo};
+    updatedObject.completed = !updatedObject.completed;
+    this.changeStatus.emit(updatedObject);
   }
 
 }

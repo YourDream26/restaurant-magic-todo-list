@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
+import { TodosService } from '../../state/todo.service';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  styleUrls: ['./form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormComponent implements OnInit {
 
@@ -11,9 +13,12 @@ export class FormComponent implements OnInit {
   public placeholderTitle = 'Task Name';
   public buttonTitle = 'Add';
 
-  constructor() { }
+  constructor(private service: TodosService) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {}
+
+  public submitHandler(event: Event): void {
+    event.preventDefault();
+    this.service.add('New Task');
   }
-
 }
