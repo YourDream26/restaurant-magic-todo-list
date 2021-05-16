@@ -28,4 +28,9 @@ export class SessionQuery extends QueryEntity<TodosState> {
             )
         )
 
+    public existingTitlesList$ = (): Observable<Array<string>> =>
+        this.todosList$.pipe(
+            map((todos) => todos.map(todo => todo.title))
+        )
+
 }
