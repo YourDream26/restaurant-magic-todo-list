@@ -1,0 +1,40 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #323e82;
+  min-height: 100vh;
+  color: #fff;
+  padding-top: 4rem;
+}
+
+.default-input,
+.default-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #fff;
+  border-radius: 8px;
+  padding: 14px 22px;
+  box-shadow: none;
+  outline: none;
+  border: 1px solid #eaeaea;
+}
+
+.default-input {
+  min-width: 300px;
+}
+
+.default-button {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=styles.css.map*/
